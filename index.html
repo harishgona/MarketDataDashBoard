@@ -101,10 +101,20 @@ app.controller('myCtrl',['$scope','$http',  function($scope, $http) {
     TESTER = document.getElementById('myDiv');
     var xaxis = $scope.xaxis;
     var yaxis = $scope.yaxis;
-    Plotly.plot( TESTER, [{
+    var layout = {
+      xaxis: {
+      autotick: false,
+      ticks: 'outside',
+      tick0: 0,
+      dtick: 1,
+      ticklen: 8,
+      tickwidth: 4,
+      tickcolor: '#000'
+      }
+    };
+    Plotly.newPlot( TESTER, [{
     x: xaxis,
-    y: yaxis }], {
-    margin: { t: 0 } } );
+    y: yaxis }], layout);
    }
 
 }]);
